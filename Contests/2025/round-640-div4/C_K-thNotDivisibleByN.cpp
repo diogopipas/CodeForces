@@ -6,22 +6,8 @@ int main(){
     cin >> t;
     while(t--){
         cin >> n >> k;
-        cout << "initial n: " << n << " initial k: " << k << endl;
-        int i = 1;
-        while(0!=1){
-            if(i%n!=0){
-                cout << "i: " <<  i << " k: " << k << endl;
-                k--;
-            }
-
-            if(k==0){
-                cout << i << endl;
-                break;
-            }
-            
-            i++;
-            
-        }
+        int need = (k-1) / (n-1);
+        cout << k + need << endl;
     }
     
     return 0;
