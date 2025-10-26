@@ -25,7 +25,6 @@ int main(){
 		ans.insert(1, string(n0, '0'));
 		ans.insert(0, string(n2, '1'));
 		cout << ans << endl;
-
         
     }
 
