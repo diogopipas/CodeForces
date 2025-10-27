@@ -2,7 +2,6 @@
 using namespace std;
 
 int main(){
-    vector<string> subs{"00", "01", "10", "11"};
     int t;
     cin >> t;
     while(t--){
