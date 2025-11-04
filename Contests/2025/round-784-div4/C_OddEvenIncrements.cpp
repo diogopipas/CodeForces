@@ -11,28 +11,34 @@ int main(){
     while(t--){
         int n;
         cin >> n;
-        int sum=0;
         vector<int> vec(n);
 
-        if(n < 3){
-            cout << "YES" << endl;
-            continue;
-        }
-        
         for(int i = 0; i < n; i++){
             cin >> vec[i];
-            sum+=vec[i];
-            
-        }
-        cout << "Sum: " << sum << endl;
-
-        if(((vec[0] + vec[1])%2==0 && sum%2==0) || ((vec[0] + vec[1])%2!=0 && sum%2!=0)){
-            cout << "YES" << endl;
         }
 
-        else{
-            cout << "NO" << endl;
-        }     
+        int oddParity = vec[0] % 2;
+        int evenParity = (n > 1 ? vec[1] % 2 : oddParity);
+
+        bool ok = true;
+
+        for(int i = 0; i < n; i+=2){
+            if(vec[i]%2 != oddParity){
+                ok = false;
+                break;
+            }
+        }
+
+        for(int i = 1; i < n; i+=2){
+            if(vec[i] % 2 != evenParity){
+                ok = false;
+                break;
+            }
+        }
+        
+        cout << (ok? "YES" : "NO") << endl;
+
+        end:
             
     }
     return 0;
