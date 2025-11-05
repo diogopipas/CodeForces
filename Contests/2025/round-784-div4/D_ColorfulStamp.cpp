@@ -29,38 +29,38 @@ int main(){
             continue;
         }
 
+
         //if there's a repeated string between Ws then NO else YES
-        int i = 0;
-        int j = 0;
         bool isRepeated = false;
-        while(i < n-1){
+        for(int i = 0; i < n; i++){
             if(s[i] == 'W'){
-                char c = s[i+1];
-                j=i+1;
-                while((s[j] != 'W') && (s[j] < n)){
-                    if(s[j] != c){
-                        isRepeated = false;
+
+                int j = i+1;
+                int count = 0;
+
+                //cout << s[j] << endl;
+
+                while((s[j] != 'W') && (j < n)){
+
+                    //cout << "test" << endl;
+                    if(s[j] != s[i+1]){
                         break;
                     }
-                    else{
-                        isRepeated = true;
-                    }
-                   
+
+                    j++;
+                    count++;
                 }
-            }
-            if(isRepeated){
-                cout << "NO" << endl;
-                break;
-            }
-            i++;
-        }
+                if(count != j-i){
 
-        if(!isRepeated){
-            cout << "YES" << endl;
-        }
+                    isRepeated = true;
+                    break;
 
+                }
+
+                i = j;
+            }
+        }
+        cout << (isRepeated? "NO" : "YES") << endl;
     }
-
-
     return 0;
 }
